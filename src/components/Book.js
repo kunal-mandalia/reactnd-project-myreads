@@ -1,23 +1,27 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { shelves } from '../data.js'
 
 const Book = ({
-  bgImage,
-  handleChangeCategory,
-  category,
+  id,
   title,
-  authors
+  authors,
+  imageLinks,
+  shelf,
+  handleMoveBook
 }) => (
   <div className="book">
     <div className="book-top">
-      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: 'url("http://books.google.com/books/content?id=PGR2AwAAQBAJ&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE73-GnPVEyb7MOCxDzOYF1PTQRuf6nCss9LMNOSWBpxBrz8Pm2_mFtWMMg_Y1dx92HT7cUoQBeSWjs3oEztBVhUeDFQX6-tWlWz1-feexS0mlJPjotcwFqAg6hBYDXuK_bkyHD-y&source=gbs_api")' }}></div>
+      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageLinks.thumbnail || ''})` }}></div>
       <div className="book-shelf-changer">
-        <select onChange={handleChangeCategory}>
+        <select
+          value={shelf}
+          onChange={(e) => { handleMoveBook(id, e.target.options[e.target.selectedIndex].value)}}
+        >
           <option value="none" disabled>Move to...</option>
-          <option value="currentlyReading">Currently Reading</option>
-          <option value="wantToRead">Want to Read</option>
-          <option value="read">Read</option>
-          <option value="none">None</option>
+          {shelves.map((s, i) => (
+            <option key={s.shelf} value={s.shelf}>{s.title}</option>
+          ))}
         </select>
       </div>
     </div>
@@ -27,11 +31,15 @@ const Book = ({
 )
 
 Book.propTypes = {
-  bgImage: PropTypes.string.isRequired,
-  handleChangeCategory: PropTypes.func.isRequired,
-  category: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  authors: PropTypes.string.isRequired
+  authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  imageLinks: PropTypes.shape({
+    smallThumbnail: PropTypes.string,
+    thumbnail: PropTypes.string
+  }),
+  shelf: PropTypes.string.isRequired,  
+  handleMoveBook: PropTypes.func.isRequired,
 }
 
 export default Book
