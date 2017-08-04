@@ -1,0 +1,20 @@
+exports[`<SearchBooksBar .../> should match snapshot 1`] = `
+<div
+  className="search-books-bar">
+  <a
+    className="close-search"
+    href="/"
+    onClick={[Function]}>
+    Close
+  </a>
+  <div
+    className="search-books-input-wrapper">
+    <input
+      id="search-input"
+      onChange={[Function]}
+      placeholder="Search by title or author"
+      type="text"
+      value="" />
+  </div>
+</div>
+`;

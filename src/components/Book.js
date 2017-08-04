@@ -16,7 +16,13 @@ const Book = ({
       <div className="book-shelf-changer">
         <select
           value={shelf}
-          onChange={(e) => { handleMoveBook(id, e.target.options[e.target.selectedIndex].value)}}
+          onChange={(e) => {
+            handleMoveBook(id, e.target.options[e.target.selectedIndex].value, {
+              id,
+              title,
+              authors,
+              imageLinks
+            })}}
         >
           <option value="none" disabled>Move to...</option>
           {shelves.map((s, i) => (
@@ -33,7 +39,7 @@ const Book = ({
 Book.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  authors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  authors: PropTypes.arrayOf(PropTypes.string),
   imageLinks: PropTypes.shape({
     smallThumbnail: PropTypes.string,
     thumbnail: PropTypes.string

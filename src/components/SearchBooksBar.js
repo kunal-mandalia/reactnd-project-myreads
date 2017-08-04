@@ -9,7 +9,7 @@ class SearchBooksBar extends Component {
 
   handleChange (value) {
     this.setState({ searchText: value })
-    this.props.searchBooks(value)
+    this.props.handleSearch(value)
   }
 
   render () {
