@@ -9,7 +9,7 @@ class SearchBooksBar extends Component {
 
   handleChange (value) {
     this.setState({ searchText: value })
-    this.props.handleSearch(value)
+    value === '' ? this.props.handleClearSearch() : this.props.handleSearch(value)
   }
 
   render () {
@@ -39,7 +39,8 @@ class SearchBooksBar extends Component {
 }
 
 SearchBooksBar.propTypes = {
-  searchBooks: PropTypes.func
+  handleSearch: PropTypes.func.isRequired,
+  handleClearSearch: PropTypes.func.isRequired
 }
 
 export default SearchBooksBar
