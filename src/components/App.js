@@ -1,9 +1,9 @@
 import React from 'react'
-import * as BooksAPI from './BooksAPI'
-import './App.css'
+import * as BooksAPI from '../BooksAPI'
+import '../styles/App.css'
 import { Route } from 'react-router-dom'
-import SearchBooksLayout from './components/SearchBooksLayout'
-import MainLayout from './components/MainLayout'
+import SearchBooksLayout from './SearchBooksLayout'
+import MainLayout from './MainLayout'
 
 export const isBookInArray = (bookId, books) => books.map(b => b.id).indexOf(bookId) !== -1
 
