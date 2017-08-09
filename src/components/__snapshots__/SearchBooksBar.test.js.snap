@@ -10,6 +10,7 @@ exports[`<SearchBooksBar .../> should match snapshot 1`] = `
   <div
     className="search-books-input-wrapper">
     <input
+      autoFocus={true}
       id="search-input"
       onChange={[Function]}
       placeholder="Search by title or author"
