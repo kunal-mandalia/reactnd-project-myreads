@@ -31,6 +31,7 @@ class SearchBooksBar extends Component {
             placeholder="Search by title or author"
             onChange={(e) => this.handleChange(e.target.value)}
             value={this.state.searchText}
+            autoFocus
           />
         </div>
       </div>
