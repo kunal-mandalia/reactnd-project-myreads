@@ -2,7 +2,7 @@ import SearchBooksBar from './SearchBooksBar'
 import renderer from 'react-test-renderer'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
-import { mount } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import MountOptions from '../../helper/mountOptions'
 
 const mockHandleSearch = jest.fn();
@@ -19,6 +19,11 @@ describe('<SearchBooksBar .../>', () => {
     const wrapper = mount(<SearchBooksBar {...props} />, MountOptions)
     wrapper.find('#search-input').simulate('change', {target: {value}})
     expect(wrapper.state().searchText).toEqual(value)
+  })
+
+  it('should link to main page', () => {
+    const wrapper = shallow(<SearchBooksBar {...props} />)
+    expect(wrapper.find('Link').props().to).toEqual('/')
   })
 
   it('should match snapshot', () => {
