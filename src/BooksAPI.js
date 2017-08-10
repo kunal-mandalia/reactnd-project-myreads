@@ -5,7 +5,7 @@ const api = "https://reactnd-books-api.udacity.com"
 
 /**
  * Since tests run without the dom (and thus without window.localStorage)
- *  create a storage placeholder only when tests are running to polyfill missing global
+ *  stub missing localStorage object in test mode
  */
 let token;
 let storage;

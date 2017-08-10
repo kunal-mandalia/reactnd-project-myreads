@@ -1,16 +1,16 @@
-import React from 'react'
-import * as BooksAPI from '../BooksAPI'
-import '../styles/App.css'
-import { Route } from 'react-router-dom'
-import SearchBooksLayout from './SearchBooksLayout'
-import MainLayout from './MainLayout'
+import React from 'react';
+import * as BooksAPI from '../BooksAPI';
+import '../styles/App.css';
+import { Route } from 'react-router-dom';
+import SearchBooksLayout from './SearchBooksLayout';
+import MainLayout from './MainLayout';
 
-export const isBookInArray = (bookId, books) => books.map(b => b.id).indexOf(bookId) !== -1
+export const isBookInArray = (bookId, books) => books.map(b => b.id).indexOf(bookId) !== -1;
 
 export const setShelfProp = (booksTo, booksFrom) => {
-  let booksIdShelfMap = {}
-  booksFrom.forEach(b => { booksIdShelfMap[b.id] = b.shelf })
-  return booksTo.map(b => ({ ...b, shelf: booksIdShelfMap[b.id] || 'none' }))
+  let booksIdShelfMap = {};
+  booksFrom.forEach(b => { booksIdShelfMap[b.id] = b.shelf });
+  return booksTo.map(b => ({ ...b, shelf: booksIdShelfMap[b.id] || 'none' }));
 }
 
 class BooksApp extends React.Component {
@@ -21,10 +21,10 @@ class BooksApp extends React.Component {
       error: false,
       searchResults: []
     }
-    this.handleMoveBook = this.handleMoveBook.bind(this)
-    this.updateBookShelf = this.updateBookShelf.bind(this)
-    this.handleSearch = this.handleSearch.bind(this)
-    this.handleClearSearch = this.handleClearSearch.bind(this)
+    this.handleMoveBook = this.handleMoveBook.bind(this);
+    this.updateBookShelf = this.updateBookShelf.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.handleClearSearch = this.handleClearSearch.bind(this);
   }
 
   componentDidMount () {
@@ -35,13 +35,13 @@ class BooksApp extends React.Component {
       })
       .catch(() => {
         this.setState({ error: true })
-      })
+      });
     }
   }
 
   updateBookShelf (book, shelf) {
-    BooksAPI.update(book, shelf)
-    return Object.assign({}, book, { shelf })
+    BooksAPI.update(book, shelf);
+    return Object.assign({}, book, { shelf });
   }
 
   handleMoveBook (bookId, shelf, book) {
@@ -51,7 +51,7 @@ class BooksApp extends React.Component {
         state.books.map(b => (b.id === bookId) ?  this.updateBookShelf(b, shelf) : b) :
         state.books.concat(this.updateBookShelf(book, shelf)),
       searchResults: state.searchResults.map(b => b.id === bookId ? book : b)
-    }))
+    }));
   }
 
   handleSearch (query) {
@@ -63,11 +63,11 @@ class BooksApp extends React.Component {
       })
       .catch(() => {
         this.setState({ error: true })
-      })
+      });
   }
 
   handleClearSearch () {
-    this.setState({ searchResults: [] })
+    this.setState({ searchResults: [] });
   }
 
   render() {
@@ -95,4 +95,4 @@ class BooksApp extends React.Component {
   }
 }
 
-export default BooksApp
+export default BooksApp;

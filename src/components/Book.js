@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { shelves } from '../data.js'
+import { shelves } from '../data.js';
 
 const Book = ({
   id,
@@ -49,4 +49,4 @@ Book.propTypes = {
   handleMoveBook: PropTypes.func.isRequired,
 }
 
-export default Book
+export default Book;
