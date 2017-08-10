@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
-import BookShelf from './BookShelf'
-import { shelves } from '../data.js'
-import PropTypes from 'prop-types'
+import BookShelf from './BookShelf';
+import { shelves } from '../data.js';
+import PropTypes from 'prop-types';
 
 export const filterBooksByShelf = (books, shelf) => (
   books.filter(b => b.shelf === shelf)
-)
+);
 
 const MainLayout = ({ books, handleMoveBook }) => (
   <div className="list-books">
@@ -33,6 +33,6 @@ const MainLayout = ({ books, handleMoveBook }) => (
 MainLayout.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleMoveBook: PropTypes.func.isRequired
-}
+};
 
-export default MainLayout
+export default MainLayout;

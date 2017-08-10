@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 class SearchBooksBar extends Component {
   state = {
     searchText: ''
-  }
+  };
 
   handleChange (value) {
-    this.setState({ searchText: value })
-    value === '' ? this.props.handleClearSearch() : this.props.handleSearch(value)
+    this.setState({ searchText: value });
+    value === '' ? this.props.handleClearSearch() : this.props.handleSearch(value);
   }
 
   render () {
@@ -34,6 +34,6 @@ class SearchBooksBar extends Component {
 SearchBooksBar.propTypes = {
   handleSearch: PropTypes.func.isRequired,
   handleClearSearch: PropTypes.func.isRequired
-}
+};
 
-export default SearchBooksBar
+export default SearchBooksBar;
