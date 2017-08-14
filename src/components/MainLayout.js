@@ -14,9 +14,9 @@ const MainLayout = ({ books, handleMoveBook }) => (
       <h1>MyReads</h1>
     </div>
     <div className="list-books-content">
-      {shelves.map((s, i) => s.showInMainLayout && (
+      {shelves.map(s => s.showInMainLayout && (
         <BookShelf
-          key={i}
+          key={s.shelf}
           title={s.title}
           shelf={s.shelf}
           books={filterBooksByShelf(books, s.shelf)}
