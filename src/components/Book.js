@@ -12,7 +12,7 @@ const Book = ({
 }) => (
   <div className="book">
     <div className="book-top">
-      <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${imageLinks ? (imageLinks.smallThumbnail || imageLinks.thumbnail) : ''})` }}></div>
+      <div className="book-cover" style={{ backgroundImage: `url(${imageLinks ? (imageLinks.smallThumbnail || imageLinks.thumbnail) : ''})` }}></div>
       <div className="book-shelf-changer">
         <select
           value={shelf}
@@ -26,7 +26,7 @@ const Book = ({
             })}}
         >
           <option disabled>Move to...</option>
-          {shelves.map((s, i) => (
+          {shelves.map(s => (
             <option key={s.shelf} value={s.shelf}>{s.title}</option>
           ))}
         </select>
