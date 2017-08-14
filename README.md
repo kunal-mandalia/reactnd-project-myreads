@@ -23,6 +23,8 @@ Check it out on Heroku: https://reactnd-project-myreads.herokuapp.com/
 3. Install dependencies: `yarn install` or `npm install`
 4. Run app locally: `npm run start`
 
+### Limitations
+This app restricts book searches to a set of predefined keywords such as 'Android', 'Art', etc. You can find the entire list [here](/SEARCH_TERMS.md)
 
 ### Tests
 Run all tests with `npm run test` and see test coverage with `npm run coverage`
